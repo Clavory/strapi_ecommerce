@@ -52,7 +52,7 @@ function getItems() {
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <a href="index.html"><img src="images/logo.png" alt="logo" width="125px"></a>
+                    <a href="index.html"><img src="<?php echo $content->headerLogo; ?>" alt="logo" width="125px"></a>
                 </div>
                 <nav>
                     <ul id="MenuItems">
@@ -68,10 +68,9 @@ function getItems() {
             </div>
             <div class="row">
                 <div class="col-2">
-                    <h1>Give Your Workout <br> A New Style!</h1>
-                    <p>Success isn't always about greatness. It;s about consistency. Consistent <br> hard work gains
-                        success. Greatness will come.</p>
-                    <a href="" class="btn">Explore Now &#8594;</a>
+                    <h1><?php echo $content->heroSection->title; ?></h1>
+                    <p><?php echo $content->heroSection->description; ?></p>
+                    <a href="" class="btn"><?php echo $content->heroSection->buttonText; ?> &#8594;</a>
                 </div>
                 <div class="col-2">
                     <img src="images/image1.png">
@@ -103,155 +102,46 @@ function getItems() {
     <div class="small-container">
         <h2 class="title">Featured Products</h2>
         <div class="row">
-            <div class="col-4">
-                <a href="product_details.html"><img src="images/product-1.jpg"></a>
-                <h4>Red Printed T-Shirt</h4>
+            <?php foreach ($content->featuredProducts as $featuredProduct){?>
+                <div class="col-4">
+                <a href="product_details.html"><img src="<?php echo $featuredProduct->image; ?>"></a>
+                <h4><?php echo $featuredProduct->name; ?></h4>
                 <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    <?php 
+                        $rating = $featuredProduct->stars;
+                        $count = 0;
+                        while ($count < $rating){
+                            echo "<i class=\"fa fa-star\"></i>\n";
+                            $count++;
+                        }
+                    ?>
                     <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
+                <p><?php echo $featuredProduct->price; ?></p>
             </div>
-            <div class="col-4">
-                <img src="images/product-2.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-3.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-4.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
+            <?php } ?>
         </div>
+
         <h2 class="title">Latest Products</h2>
         <div class="row">
-            <div class="col-4">
-                <img src="images/product-5.jpg">
-                <h4>Red Printed T-Shirt</h4>
+        <?php foreach ($content->latestProducts as $latestProduct){?>
+                <div class="col-4">
+                <a href="product_details.html"><img src="<?php echo $latestProduct->image; ?>"></a>
+                <h4><?php echo $latestProduct->name; ?></h4>
                 <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+                    <?php 
+                        $rating = $latestProduct->stars;
+                        $count = 0;
+                        while ($count < $rating){
+                            echo "<i class=\"fa fa-star\"></i>\n";
+                            $count++;
+                        }
+                    ?>
                     <i class="fa fa-star-o"></i>
                 </div>
-                <p>$50.00</p>
+                <p><?php echo $latestProduct->price; ?></p>
             </div>
-            <div class="col-4">
-                <img src="images/product-6.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-7.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-8.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <img src="images/product-9.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-10.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-11.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="images/product-12.jpg">
-                <h4>Red Printed T-Shirt</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
+            <?php } ?>
         </div>
     </div>
 
@@ -277,48 +167,25 @@ function getItems() {
     <div class="testimonial">
         <div class="small-container">
             <div class="row">
-                <div class="col-3">
+                <?php foreach ($content->testimonials as $testimonial){?>
+                    <div class="col-3">
                     <i class="fa fa-quote-left"></i>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        industry's standard dummy text.</p>
+                    <p><?php echo $testimonial->testimonial; ?></p>
                     <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
+                        <?php 
+                            $rating = $testimonial->stars;
+                            $count = 0;
+                            while ($count < $rating){
+                                echo "<i class=\"fa fa-star\"></i>\n";
+                                $count++;
+                            }
+                        ?>
                         <i class="fa fa-star"></i>
                     </div>
-                    <img src="images/user-1.png">
-                    <h3>Sean Parker</h3>
+                    <img src="<?php echo $testimonial->picture; ?>">
+                    <h3><?php echo $testimonial->name; ?></h3>
                 </div>
-                <div class="col-3">
-                    <i class="fa fa-quote-left"></i>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        industry's standard dummy text.</p>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <img src="images/user-2.png">
-                    <h3>Mike Smith</h3>
-                </div>
-                <div class="col-3">
-                    <i class="fa fa-quote-left"></i>
-                    <p>Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        industry's standard dummy text.</p>
-                    <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                    </div>
-                    <img src="images/user-3.png">
-                    <h3>Mabel Joe</h3>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -360,9 +227,8 @@ function getItems() {
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="images/logo-white.png">
-                    <p>Our Purpose Is To Sustainably Make the Pleasure and Benefits of Sports Accessible to the Many.
-                    </p>
+                    <img src="<?php echo $content->footerLogo; ?>">
+                    <p><?php echo $content->footerSlogan; ?></p>
                 </div>
                 <div class="footer-col-3">
                     <h3>Useful Links</h3>
